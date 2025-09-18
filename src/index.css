@@ -1,6 +1,6 @@
 /* 1. 必须保留：Tailwind 基础样式引入 */
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
+@reference "tailwindcss";
 @tailwind utilities;
 
 /* 2. 可选添加：项目全局基础样式（根据博客需求自定义） */
@@ -8,10 +8,6 @@
   /* 全局字体配置（覆盖 Tailwind 默认字体） */
   body {
     @apply bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen;
-  }
-  /* 容器宽度（博客内容区统一宽度） */
-  .blog-container {
-    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
   }
   /* 标题样式统一 */
   h1 {
@@ -22,12 +18,17 @@
   }
   /* 链接样式（避免默认蓝色下划线过于突兀） */
   a {
-    @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors;
+    @apply text-gray-700 dark:text-blue-400 hover:text-blue-500 transition-colors;
   }
 }
 
 /* 3. 可选添加：自定义组件样式（后续可迁移到单独组件CSS） */
 @layer components {
+  /* 容器宽度（博客内容区统一宽度） */
+  .blog-container {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+  /* 按钮样式（可根据需要添加更多按钮样式） */
   .btn-primary {
     @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors;
   }
